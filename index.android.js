@@ -12,25 +12,29 @@ import {
   View
 } from 'react-native';
 
-export default class mytopia extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
-    );
-  }
-}
+import JobPageData from './lib/JobSearchData';
+let test = 'loading..';
+JobPageData.listJobsByLoc('Austin', 'TX').then((res)=>{
+  test = JSON.stringify(res);
+});
 
+class Blink extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {showText: true};
+
+        JobPageData.listJobsByLoc('Austin', 'TX').then((res)=>{
+            test = JSON.stringify(res);
+            this.setState({showText: true})
+        });
+    }
+
+    render() {
+        return (
+            <Text>{test}</Text>
+        );
+    }
+}
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -50,4 +54,6 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('mytopia', () => mytopia);
+AppRegistry.registerComponent('mytopia', () => Blink);
+
+export default Blink;
