@@ -14,9 +14,6 @@ import {
 
 import JobPageData from './lib/JobSearchData';
 let test = 'loading..';
-JobPageData.listJobsByLoc('Austin', 'TX').then((res)=>{
-  test = JSON.stringify(res);
-});
 
 class Blink extends Component {
     constructor(props) {
