@@ -9,14 +9,12 @@ import {
 import NavigationBar from 'react-native-navbar';
 
 export default class Header extends Component {
-
     render() {
-        return (
-            <NavigationBar
-                title={<Image
-                    source={require('./../Images/title.png')}
-                    style={styles.image}
-                    /> }
+        return (<NavigationBar
+            title={<Image
+                source={require('./../Images/title.png')}
+                style={styles.image}
+                /> }
             />
         );
     }
