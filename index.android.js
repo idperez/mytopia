@@ -12,18 +12,19 @@ import {
   View
 } from 'react-native';
 
-import JobPageData from './lib/JobSearchData';
+import JobSearchData from './lib/JobSearchData';
+import JobPageData from './lib/JobPageData';
+import HouseSearchData from './lib/HouseSearchData';
+import todoSearchResults from './lib/todoSearchResults'
+
 let test = 'loading..';
-JobPageData.listJobsByLoc('Austin', 'TX').then((res)=>{
-  test = JSON.stringify(res);
-});
 
 class Blink extends Component {
     constructor(props) {
         super(props);
         this.state = {showText: true};
 
-        JobPageData.listJobsByLoc('Austin', 'TX').then((res)=>{
+        todoSearchResults.getTodoList('austin','tx').then((res)=>{
             test = JSON.stringify(res);
             this.setState({showText: true})
         });
