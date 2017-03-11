@@ -49,16 +49,16 @@ class JobCard extends Component {
                 <View style={styles.view}>
                     <Grid>
                         <Row>
-                            <Text style={styles.company}>General Dynamics</Text>
+                            <Text style={styles.company}>{this.props.company}</Text>
                         </Row>
                         <Row>
-                            <Text style={styles.location}>San Diego, CA</Text>
+                            <Text style={styles.location}>{this.props.location}</Text>
                         </Row>
                         <Row>
                             <StarRating
                                 disabled={true}
                                 maxStars={5}
-                                rating={3.7}
+                                rating={this.props.rating}
                                 starSize={20}
                             />
                         </Row>
