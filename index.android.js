@@ -16,6 +16,7 @@ import JobSearchData from './lib/JobSearchData';
 import JobPageData from './lib/JobPageData';
 import HouseSearchData from './lib/HouseSearchData';
 import todoSearchResults from './lib/todoSearchResults'
+import HousePageData from './lib/HousePageData.js'
 
 let test = 'loading..';
 
@@ -24,7 +25,7 @@ class Blink extends Component {
         super(props);
         this.state = {showText: true};
 
-        todoSearchResults.getTodoList('austin','tx').then((res)=>{
+        HousePageData.getHouseInformation('2114 Bigelow Ave', 'Seattle', 'WA').then((res)=>{
             test = JSON.stringify(res);
             this.setState({showText: true})
         });
