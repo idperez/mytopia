@@ -38,7 +38,7 @@ class HousingResults extends Component {
 
         HouseSearchData.getHousingSearchData('austin', 'tx').then((res) => {
 
-            results = JSON.stringify(res);
+            results = <Text>Hi</Text>;
 
             this.setState({results: results});
         });
