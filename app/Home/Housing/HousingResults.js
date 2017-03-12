@@ -42,6 +42,10 @@ class HousingResults extends Component {
                 return <HousingCard
                     key={i}
                     image={house.photo}
+                    price={house.price}
+                    attributes={house.attributes}
+                    address={house.address}
+                    houseType={house.houseType}
                 />;
             });
 
