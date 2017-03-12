@@ -21,7 +21,7 @@ class JobsResults extends Component {
 
         this.state = {results: results};
 
-        JobPageData.listJobsByLoc('Austin', 'TX').then((res) => {
+        JobPageData.listJobsByLoc(this.props.test, 'TX').then((res) => {
 
             results = res.jobList.map((job, i) => {
                 return <JobCard
