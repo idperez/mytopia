@@ -25,7 +25,7 @@ class Blink extends Component {
         super(props);
         this.state = {showText: true};
 
-        JobSearchData.listJobsByLoc('Seattle', 'WA').then((res)=>{
+        JobSearchData.listJobsByLoc('Phoenix', 'AZ').then((res)=>{
             test = JSON.stringify(res);
             this.setState({showText: true})
         });
