@@ -18,6 +18,7 @@ import HouseSearchData from './lib/HouseSearchData';
 import todoSearchResults from './lib/todoSearchResults'
 import HousePageData from './lib/HousePageData.js'
 import CityPageData from './lib/CityPageData.js'
+import user from './lib/User.js'
 
 let test = 'loading..';
 
@@ -26,7 +27,7 @@ class Blink extends Component {
         super(props);
         this.state = {showText: true};
 
-        CityPageData.getCityInfo('austin', 'tx').then((res)=>{
+        HouseSearchData.getHousingSearchData('austin', 'tx').then((res)=>{
             test = JSON.stringify(res);
             this.setState({showText: true})
         });
