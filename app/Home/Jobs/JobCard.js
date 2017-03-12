@@ -41,7 +41,7 @@ class JobCard extends Component {
     }
 
     viewJob() {
-        Actions.job();
+        Actions.job({jobTitle : this.props.title});
     }
 
     render () {
