@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 
-import { Icon, Card, Button } from 'react-native-elements'
+import { Icon, Card, Button, Grid, Col, Row } from 'react-native-elements';
+
+import Hr from 'react-native-hr';
 
 import Accordion from 'react-native-collapsible/Accordion';
+
+import StarRating from 'react-native-star-rating';
 
 let results = "";
 
@@ -62,11 +66,98 @@ class Favorites extends Component {
     }
 
     renderContentType(section) {
-        return (
-            <View>
-                <Text>contents</Text>
-            </View>
-        );
+        if(section.title === "Jobs") {
+            return (
+                <View>
+                    <Card
+                        key={0} >
+                        <View style={styles.view}>
+                            <Text style={styles.title}>job title</Text>
+                        </View>
+                        <Hr lineColor='#b3b3b3' textColor='steelblue' />
+                        <View style={styles.view}>
+                            <Grid>
+                                <Row>
+                                    <Text style={styles.company}>company</Text>
+                                </Row>
+                                <Row>
+                                    <Text style={styles.location}>location</Text>
+                                </Row>
+                                <Row>
+                                    <StarRating
+                                        disabled={true}
+                                        maxStars={5}
+                                        rating={4}
+                                        starSize={20}
+                                    />
+                                </Row>
+                            </Grid>
+                        </View>
+                        <Button
+                            icon={{name: 'work'}}
+                            backgroundColor='#8dc63f'
+                            buttonStyle={{marginTop: 5, borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
+                            title='View Job'/>
+                    </Card>
+                </View>
+            );
+        } else if(section.title === "Homes") {
+            return (
+                <View>
+                    <Card
+                        key={0}>
+                        <View style={styles.view}>
+                            <Text style={styles.title}>price</Text>
+                        </View>
+                        <Hr lineColor='#b3b3b3' textColor='steelblue' />
+                        <View style={styles.view}>
+                            <Grid>
+                                <Row>
+                                    <Text style={styles.company}>housetype</Text>
+                                </Row>
+                                <Row>
+                                    <Text style={styles.location}>attributes</Text>
+                                </Row>
+                                <Row>
+                                    <Text style={styles.location}>address</Text>
+                                </Row>
+                            </Grid>
+                        </View>
+                        <Button
+                            icon={{name: 'home'}}
+                            backgroundColor='#8dc63f'
+                            buttonStyle={{marginTop: 5, borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
+                            title='View Home' />
+                    </Card>
+                </View>
+            );
+        } else {
+            return (
+                <View>
+                    <Card
+                        key={0}>
+                        <View style={styles.view}>
+                            <Text style={styles.title}>name</Text>
+                        </View>
+                        <Hr lineColor='#b3b3b3' textColor='steelblue' />
+                        <View style={styles.stars}>
+                            <StarRating
+                                disabled={true}
+                                maxStars={5}
+                                rating={4}
+                                starSize={15}
+                            />
+                        </View>
+                        <Button
+                            icon={{name: 'room'}}
+                            backgroundColor='#8dc63f'
+                            buttonStyle={{marginTop: 5, borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
+                            title='View Business'
+                            />
+                    </Card>
+                </View>
+            );
+        }
     }
 
     constructor(props) {
@@ -157,6 +248,27 @@ const styles = StyleSheet.create({
     image: {
         width: 100,
         height: 70
+    },
+    title: {
+        fontSize: 15,
+        fontWeight: 'bold',
+        marginBottom: 5,
+    },
+    company: {
+        marginBottom: 5,
+        marginTop: 5
+    },
+    location: {
+        marginBottom: 5
+    },
+    view: {
+        marginLeft: 7
+    },
+    stars: {
+        marginLeft: 90,
+        marginTop: 5,
+        marginBottom: 5,
+        width: 60
     }
 });
 

@@ -19,7 +19,7 @@ let life = '';
 
 import Accordion from 'react-native-collapsible/Accordion';
 
-import Hr from 'react-native-hr'
+import Hr from 'react-native-hr';
 
 const SECTIONS = [
     {
