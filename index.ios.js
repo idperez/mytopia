@@ -4,6 +4,12 @@ import { View, AppRegistry, StyleSheet, Navigator, Text, Icon } from 'react-nati
 import Home from './app/Home/Home';
 import Search from './app/Home/Search';
 
+import JobPage from './app/Home/Jobs/JobPage';
+import HomePage from './app/Home/Housing/HomePage';
+import LifePage from './app/Home/Life/LifePage';
+
+import Preferences from './app/Home/Preferences';
+
 import Favorites from './app/Favorites/Favorites';
 
 import { Router, Scene } from 'react-native-router-flux'
@@ -34,6 +40,26 @@ export default class mytopia extends Component {
                             <Scene
                                 key="home"
                                 component={Home}
+                                title={<Text style={styles.headerText}>mytopia</Text>}
+                            />
+                            <Scene
+                                key="job"
+                                component={JobPage}
+                                title={<Text style={styles.headerText}>mytopia</Text>}
+                            />
+                            <Scene
+                                key="house"
+                                component={HomePage}
+                                title={<Text style={styles.headerText}>mytopia</Text>}
+                            />
+                            <Scene
+                                key="life"
+                                component={LifePage}
+                                title={<Text style={styles.headerText}>mytopia</Text>}
+                            />
+                            <Scene
+                                key="preferences"
+                                component={Preferences}
                                 title={<Text style={styles.headerText}>mytopia</Text>}
                             />
                         </Scene>

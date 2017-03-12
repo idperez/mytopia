@@ -7,6 +7,8 @@ import Hr from 'react-native-hr'
 import Toast from 'react-native-simple-toast';
 import StarRating from 'react-native-star-rating';
 
+import { Actions } from 'react-native-router-flux';
+
 class JobCard extends Component {
     constructor(props) {
         super(props);
@@ -36,6 +38,10 @@ class JobCard extends Component {
 
     showToast(message) {
         Toast.show(message);
+    }
+
+    viewJob() {
+        Actions.job();
     }
 
     render () {
@@ -73,7 +79,8 @@ class JobCard extends Component {
                     icon={{name: 'work'}}
                     backgroundColor='#8dc63f'
                     buttonStyle={{marginTop: 5, borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-                    title='View Job' />
+                    title='View Job'
+                    onPress={this.viewJob.bind(this)}/>
             </Card>
         </View>);
     }

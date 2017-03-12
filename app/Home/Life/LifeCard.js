@@ -7,6 +7,8 @@ import Hr from 'react-native-hr'
 import Toast from 'react-native-simple-toast';
 import StarRating from 'react-native-star-rating';
 
+import { Actions } from 'react-native-router-flux';
+
 class LifeCard extends Component {
     constructor(props) {
         super(props);
@@ -38,6 +40,10 @@ class LifeCard extends Component {
         Toast.show(message);
     }
 
+    viewBusiness() {
+        Actions.life();
+    }
+
     render () {
         return (<View>
             <Card
@@ -64,7 +70,8 @@ class LifeCard extends Component {
                     icon={{name: 'room'}}
                     backgroundColor='#8dc63f'
                     buttonStyle={{marginTop: 5, borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-                    title='View Business' />
+                    title='View Business'
+                    onPress={this.viewBusiness.bind(this)}/>
             </Card>
         </View>);
     }

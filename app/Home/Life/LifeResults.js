@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-import { Card } from 'react-native-elements';
-
 import todoSearchResults from './../../../lib/todoSearchResults';
 
 import LifeCard from './LifeCard';
@@ -16,7 +14,6 @@ class LifeResults extends Component {
     }
 
     componentDidMount() {
-
         results = <Text>loading...</Text>;
 
         this.state = {results: results};
