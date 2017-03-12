@@ -18,8 +18,7 @@ class Search extends Component {
     }
 
     search() {
-        Toast.show(this.state.query);
-        Actions.home({test:this.state.query});
+        Actions.home({ test: this.state.query });
     }
 
     updateText(input) {
@@ -39,7 +38,7 @@ class Search extends Component {
                     title='Start Your Search'>
                     <SearchBar
                         lightTheme
-                        placeholder='Type Here...'
+                        placeholder='Ex: Seattle, WA'
                         onChangeText={this.updateText.bind(this)}
                         onSubmitEditing={this.search.bind(this)}
                     />

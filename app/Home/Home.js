@@ -24,7 +24,7 @@ class Home extends Component {
             <ScrollView keyboardShouldPersistTaps="always">
             <ScrollableTabView
                 tabBarBackgroundColor='#ffffff'>
-                <JobsResults tabLabel="Jobs" location={this.state.location} />
+                <JobsResults tabLabel="Jobs" location={this.state.location} test={this.props.test} />
                 <HousingResults tabLabel="Housing" />
                 <LifeResults tabLabel="Life" />
             </ScrollableTabView>
