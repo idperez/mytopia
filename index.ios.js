@@ -1,21 +1,83 @@
 import React, { Component } from 'react';
-import { View, AppRegistry, StyleSheet } from 'react-native';
+import { View, AppRegistry, StyleSheet, Navigator, Text, Icon } from 'react-native';
 
-import App from './app/App';
+import Home from './app/Home/Home';
+import Search from './app/Home/Search';
+
+import Favorites from './app/Favorites/Favorites';
+
+import { Router, Scene } from 'react-native-router-flux'
 
 export default class mytopia extends Component {
+
     render() {
-        return (<View style={styles.container}>
-                <App />
-            </View>
+        const TabIcon = ({ selected, title }) => {
+            return (
+                <Text style={{color: selected ? '#00704a' :'black'}}>{title}</Text>
+            );
+        };
+
+        return (
+            <Router>
+                <Scene key="root">
+                    <Scene
+                        key="tabbar"
+                        tabs
+                        tabBarStyle={{ backgroundColor: '#ffffff'}} >
+                        <Scene key="main" title="HOME" icon={TabIcon}>
+                            <Scene
+                                key="search"
+                                component={Search}
+                                title={<Text style={styles.headerText}>mytopia</Text>}
+                                initial
+                            />
+                            <Scene
+                                key="home"
+                                component={Home}
+                                title={<Text style={styles.headerText}>mytopia</Text>}
+                            />
+                        </Scene>
+                        <Scene key="fav" title="SAVED" icon={TabIcon}>
+                            <Scene
+                                key="favorites"
+                                component={Favorites}
+                                title={<Text style={styles.headerText}>mytopia</Text>}
+                                initial
+                            />
+                        </Scene>
+                        <Scene key="stats" title="STATS" icon={TabIcon}>
+                            <Scene
+                                key="favorites"
+                                component={Favorites}
+                                title={<Text style={styles.headerText}>mytopia</Text>}
+                                initial
+                            />
+                        </Scene>
+                        <Scene key="more" title="MORE" icon={TabIcon}>
+                            <Scene
+                                key="favorites"
+                                component={Favorites}
+                                title={<Text style={styles.headerText}>mytopia</Text>}
+                                initial
+                            />
+                        </Scene>
+                    </Scene>
+                </Scene>
+            </Router>
         );
     }
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#00704a'
+    image: {
+        width: 50,
+        height: 30
+    },
+    headerText: {
+        color: '#00704a',
+        fontWeight: 'bold',
+        fontFamily: 'Verdana',
+        fontStyle: 'italic'
     }
 });
 
