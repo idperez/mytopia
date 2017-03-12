@@ -40,9 +40,11 @@
     "react-native-star-rating": "^1.0.7",
     "react-native-tab-navigator": "^0.3.3",
     "react-native-vector-icons": "^4.0.0",
+    "react-native-xml2js": "^1.0.2",
     "request": "^2.81.0",
     "serve-favicon": "~2.3.2",
     "util": "^0.10.3",
+    "xmldom": "^0.1.27",
     "yelp-fusion": "^1.0.3"
   },
   "devDependencies": {
