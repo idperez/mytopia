@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 
 import { Tabs, Tab, Icon } from 'react-native-elements';
 
-
+import Search from './Home/Search';
 import Home from './Home/Home'
 
 class App extends Component {
@@ -31,7 +31,7 @@ class App extends Component {
                     renderIcon={() => <Icon style={styles.iconContainer} color={'#5e6977'} name='home' size={33} />}
                     renderSelectedIcon={() => <Icon color={'#6296f9'} name='home' size={30} />}
                     onPress={() => this.changeTab('home')}>
-                    <Home />
+                    <Search navigator={this.props.navigator} />
                 </Tab>
                 <Tab
                     titleStyle={styles.title}
