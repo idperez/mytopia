@@ -5,12 +5,21 @@ import { Icon, Grid, Row, Col, Card, ListItem, Button } from 'react-native-eleme
 
 import JobPageData from './../../../lib/JobPageData';
 
+import HouseSearchData from './../../../lib/HouseSearchData';
+import HousingPageCard from './../Housing/HousingPageCard';
+
+import todoListData from './../../../lib/todoSearchResults';
+import LifePageCard from './../Life/LifePageCard';
+
 import StarRating from 'react-native-star-rating';
 
-let results = "";
-let photo = "";
+let results = '';
+let housing = '';
+let life = '';
 
 import Accordion from 'react-native-collapsible/Accordion';
+
+import Hr from 'react-native-hr'
 
 const SECTIONS = [
     {
@@ -20,13 +29,25 @@ const SECTIONS = [
 
 const MANAGEMENT = [
     {
-        title: 'View CEO'
+        title: 'View Boss'
     }
 ];
 
 const REVIEWS = [
     {
         title: 'See A Review'
+    }
+];
+
+const HOMES = [
+    {
+        title: 'View Homes'
+    }
+];
+
+const TODO = [
+    {
+        title: 'Explore Things To Do'
     }
 ];
 
@@ -51,6 +72,11 @@ class JobPage extends Component {
         this.state = {workLifeBalanceRating: 0};
         this.state = {ceoName: "Not Found"};
         this.state = {ceoPhoto: 'https://facebook.github.io/react/img/logo_og.png'};
+        this.state = {headline: 'No Reviews For This Company'};
+        this.state = {pro: ''};
+        this.state = {con: ''};
+        this.state = {housing: <Text>loading...</Text>};
+        this.state = {life: <Text>loading...</Text>};
 
         JobPageData.getCompanyInformation('Glassdoor').then((res) => {
 
@@ -65,6 +91,37 @@ class JobPage extends Component {
             this.setState({workLifeBalanceRating: results.workLifeBalanceRating});
             this.setState({ceoName: results.ceo.name});
             this.setState({ceoPhoto: results.ceo.image.src});
+            this.setState({headline: results.featuredReview.headline});
+            this.setState({pro: results.featuredReview.pros});
+            this.setState({con: results.featuredReview.cons});
+        });
+
+        HouseSearchData.getHousingSearchData('austin', 'tx').then((res) => {
+
+            housing = res.houseList.map((house, i) => {
+                return <HousingPageCard
+                    key={i}
+                    price={house.price}
+                    attributes={house.attributes}
+                    address={house.address}
+                    houseType={house.houseType}
+                />;
+            });
+
+            this.setState({housing: housing});
+        });
+
+        todoListData.getTodoList('austin', 'texas').then((res) => {
+
+            life = res.map((life, i) => {
+                return <LifePageCard
+                    key={i}
+                    name={life.name}
+                    rating={life.rating}
+                />;
+            });
+
+            this.setState({life: life});
         });
     }
 
@@ -150,12 +207,46 @@ class JobPage extends Component {
     renderContentReviews(section) {
         return (
             <View style={styles.rating}>
-                <Image
-                    style={{width: 50, height: 50}}
-                    source={{uri: this.state.ceoPhoto}}
-                />
-                <Text style={styles.ratingText}>{this.state.ceoName}</Text>
-                <Text style={styles.ratingText}>CEO</Text>
+                <Text style={styles.ratingText}>Headline</Text>
+                <Text style={styles.ratingText}>{this.state.headline}</Text>
+                <Hr lineColor='#b3b3b3' textColor='steelblue' />
+                <Text style={styles.ratingText}>Pros</Text>
+                <Text style={styles.ratingText}>{this.state.pro}</Text>
+                <Hr lineColor='#b3b3b3' textColor='steelblue' />
+                <Text style={styles.ratingText}>Cons</Text>
+                <Text style={styles.ratingText}>{this.state.con}</Text>
+            </View>
+        );
+    }
+
+    renderHeaderHomes(section) {
+        return (
+            <View style={styles.ratingStart}>
+                <Text style={styles.seeRatings}>{section.title}</Text>
+            </View>
+        );
+    }
+
+    renderContentHomes(section) {
+        return (
+            <View>
+                {this.state.housing}
+            </View>
+        );
+    }
+
+    renderHeaderToDo(section) {
+        return (
+            <View style={styles.ratingStart}>
+                <Text style={styles.seeRatings}>{section.title}</Text>
+            </View>
+        );
+    }
+
+    renderContentToDo(section) {
+        return (
+            <View>
+                {this.state.life}
             </View>
         );
     }
@@ -197,9 +288,33 @@ class JobPage extends Component {
                     <Card
                         title="Reviews">
                         <Accordion
-                            sections={MANAGEMENT}
+                            sections={REVIEWS}
                             renderHeader={this.renderHeaderReviews.bind(this)}
                             renderContent={this.renderContentReviews.bind(this)}
+                        />
+                    </Card>
+                    <Card
+                        title="Homes Nearby">
+                        <Accordion
+                            sections={HOMES}
+                            renderHeader={this.renderHeaderHomes.bind(this)}
+                            renderContent={this.renderContentHomes.bind(this)}
+                        />
+                    </Card>
+                    <Card
+                        title="Stuff Nearby">
+                        <Accordion
+                            sections={TODO}
+                            renderHeader={this.renderHeaderToDo.bind(this)}
+                            renderContent={this.renderContentToDo.bind(this)}
+                        />
+                    </Card>
+                    <Card
+                        title="Dont Like What You See?">
+                        <Button
+                            backgroundColor='#00704a'
+                            iconRight
+                            title='Edit Preferences'
                         />
                     </Card>
             </ScrollView>
