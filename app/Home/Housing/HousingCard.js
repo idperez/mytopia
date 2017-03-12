@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-import { Card, Icon, Grid, Row, Column } from 'react-native-elements';
+import { Card, Icon, Grid, Row, Column, Button } from 'react-native-elements';
 
 import Hr from 'react-native-hr'
 import Toast from 'react-native-simple-toast';
@@ -40,21 +40,22 @@ class HousingCard extends Component {
     render () {
         return (<View>
             <Card
-                key={0} >
+                key={0}
+                image={{uri: this.props.image}}>
                 <View style={styles.view}>
-                    <Text style={styles.title}>$50,000</Text>
+                    <Text style={styles.title}>{this.props.price}</Text>
                 </View>
                 <Hr lineColor='#b3b3b3' textColor='steelblue' />
                 <View style={styles.view}>
                     <Grid>
                         <Row>
-                            <Text style={styles.company}>Single Family Home</Text>
+                            <Text style={styles.company}>{this.props.houseType}</Text>
                         </Row>
                         <Row>
-                            <Text style={styles.location}>4 Beds 4 Full, 1 Half Baths</Text>
+                            <Text style={styles.location}>{this.props.attributes}</Text>
                         </Row>
                         <Row>
-                            <Text style={styles.location}>12 Salisbury Ln.  Township of Washington, NJ 07853</Text>
+                            <Text style={styles.location}>{this.props.address}</Text>
                         </Row>
                     </Grid>
                 </View>
@@ -81,6 +82,7 @@ const styles = StyleSheet.create({
         fontSize: 15,
         fontWeight: 'bold',
         marginBottom: 5,
+        textAlign: 'center'
     },
     company: {
         marginBottom: 5,

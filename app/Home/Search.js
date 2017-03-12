@@ -1,16 +1,9 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, ScrollView, Image, WebView } from 'react-native';
 
-import Header from './../Headers/Header';
-
 import { Button, Card, SearchBar, Grid, Row, Icon } from 'react-native-elements';
 
-import Hr from 'react-native-hr';
-
-import Toast from 'react-native-simple-toast';
-
 import { Actions } from 'react-native-router-flux';
-
 
 class Search extends Component {
 
@@ -25,6 +18,10 @@ class Search extends Component {
 
     updateText(input) {
         this.setState({query: input});
+    }
+
+    editSelected() {
+        Actions.preferences();
     }
 
     render () {
@@ -44,6 +41,15 @@ class Search extends Component {
                         onChangeText={this.updateText.bind(this)}
                         onSubmitEditing={this.search.bind(this)}
                     />
+                </Card>
+                <Card
+                    title='Edit Your Preferences'>
+                    <Button
+                        backgroundColor='#00704a'
+                        buttonStyle={styles.logInButton}
+                        iconRight
+                        title='Edit'
+                        onPress={this.editSelected.bind(this)}/>
                 </Card>
                 <Card
                     title='Live, Work, Play.'>

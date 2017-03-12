@@ -15,7 +15,6 @@ class Home extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { location: 'Austin' };
     }
 
     render () {
@@ -25,8 +24,8 @@ class Home extends Component {
             <ScrollableTabView
                 tabBarBackgroundColor='#ffffff'>
                 <JobsResults tabLabel="Jobs" location={this.props.location} />
-                <HousingResults tabLabel="Housing" location={this.state.location} />
-                <LifeResults tabLabel="Life" />
+                <HousingResults tabLabel="Housing" location={this.props.location} />
+                <LifeResults tabLabel="Life" location={this.props.location} />
             </ScrollableTabView>
             </ScrollView>
         </View>);
@@ -42,5 +41,3 @@ const styles = StyleSheet.create({
 
 
 export default Home;
-
-//<HousingResults tabLabel="Housing" location={this.state.location} />

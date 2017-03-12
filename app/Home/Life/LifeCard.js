@@ -9,7 +9,7 @@ import StarRating from 'react-native-star-rating';
 
 import { Actions } from 'react-native-router-flux';
 
-class JobCard extends Component {
+class LifeCard extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -40,47 +40,38 @@ class JobCard extends Component {
         Toast.show(message);
     }
 
-    viewJob() {
-        Actions.job({jobTitle : this.props.title});
+    viewBusiness() {
+        Actions.life();
     }
 
     render () {
         return (<View>
             <Card
-                key={0} >
+                key={0}
+                image={{uri: this.props.image}}>
                 <View style={styles.view}>
-                    <Text style={styles.title}>{this.props.title}</Text>
+                    <Text style={styles.title}>{this.props.name}</Text>
                 </View>
                 <Hr lineColor='#b3b3b3' textColor='steelblue' />
-                <View style={styles.view}>
-                    <Grid>
-                        <Row>
-                            <Text style={styles.company}>{this.props.company}</Text>
-                        </Row>
-                        <Row>
-                            <Text style={styles.location}>{this.props.location}</Text>
-                        </Row>
-                        <Row>
+                            <View style={styles.stars}>
                             <StarRating
                                 disabled={true}
                                 maxStars={5}
                                 rating={this.props.rating}
-                                starSize={20}
+                                starSize={15}
                             />
-                        </Row>
-                    </Grid>
-                </View>
+                            </View>
                 <Icon
                     name={this.state.favorite}
                     color={'#8dc63f'}
                     onPress={() => this.favorite()}
                 />
                 <Button
-                    icon={{name: 'work'}}
+                    icon={{name: 'room'}}
                     backgroundColor='#8dc63f'
                     buttonStyle={{marginTop: 5, borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-                    title='View Job'
-                    onPress={this.viewJob.bind(this)}/>
+                    title='View Business'
+                    onPress={this.viewBusiness.bind(this)}/>
             </Card>
         </View>);
     }
@@ -88,14 +79,24 @@ class JobCard extends Component {
 
 const styles = StyleSheet.create({
     view: {
-        marginLeft: 7
+        marginLeft: 7,
+        marginTop: 5,
+        marginBottom: 5
+    },
+    stars: {
+        marginLeft: 125,
+        marginTop: 5,
+        marginBottom: 5,
+        width: 60
     },
     title: {
+        textAlign: 'center',
         fontSize: 15,
         fontWeight: 'bold',
         marginBottom: 5,
     },
     company: {
+        textAlign: 'center',
         marginBottom: 5,
         marginTop: 5
     },
@@ -104,4 +105,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default JobCard;
+export default LifeCard;
