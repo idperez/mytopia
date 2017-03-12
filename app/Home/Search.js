@@ -54,7 +54,7 @@ class Search extends Component {
                 <Card
                     title='Live, Work, Play.'>
                     <Text style={styles.cardText}>
-                        Mytopia gives you the opportunity to rethink we find new opportunities, we give you the tools to make the most educated decision for you.
+                        Mytopia gives you the opportunity to rethink how we find new opportunities, we give you the tools to make the most educated decision for YOU.
                     </Text>
                     <Button
                         backgroundColor='#00704a'

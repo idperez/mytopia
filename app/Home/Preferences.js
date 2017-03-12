@@ -23,12 +23,12 @@ class Preferences extends Component {
     render () {
         return(
             <ScrollView keyboardShouldPersistTaps="always" style={styles.container}>
-            <View style={styles.hero}>
-                <Icon
-                    name="settings"
-                />
-            </View>
-        </ScrollView>);
+                <View style={styles.hero}>
+                    <Icon
+                        name="settings"
+                    />
+                </View>
+            </ScrollView>);
     }
 }
 

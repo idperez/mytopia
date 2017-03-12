@@ -25,14 +25,14 @@ class LifePageCard extends Component {
                 favorite: 'favorite-border',
                 didFavorite: false
             });
-            this.showToast('Removed Job');
+            this.showToast('Removed Fun Times');
         } else {
             // favorite
             this.setState({
                 favorite: 'favorite',
                 didFavorite: true
             });
-            this.showToast('Saved Job');
+            this.showToast('Saved Fun Times');
         }
     }
 
