@@ -25,8 +25,8 @@ class JobsResults extends Component {
 
         this.state = {results: results};
 
-        let city = this.props.test.split(',')[0];
-        let state = this.props.test.split(',')[1];
+        let city = this.props.location.split(',')[0];
+        let state = this.props.location.split(',')[1];
 
         JobPageData.listJobsByLoc(city, state).then((res) => {
 

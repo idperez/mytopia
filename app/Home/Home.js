@@ -24,11 +24,10 @@ class Home extends Component {
             <ScrollView keyboardShouldPersistTaps="always">
             <ScrollableTabView
                 tabBarBackgroundColor='#ffffff'>
-                <JobsResults tabLabel="Jobs" location={this.state.location} test={this.props.test} />
-                <HousingResults tabLabel="Housing" />
+                <JobsResults tabLabel="Jobs" location={this.props.location} />
+                <HousingResults tabLabel="Housing" location={this.state.location} />
                 <LifeResults tabLabel="Life" />
             </ScrollableTabView>
-                <Text>{this.props.test}</Text>
             </ScrollView>
         </View>);
     }
@@ -43,3 +42,5 @@ const styles = StyleSheet.create({
 
 
 export default Home;
+
+//<HousingResults tabLabel="Housing" location={this.state.location} />

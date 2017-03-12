@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Image, WebView } from 'react-native';
 
 import Header from './../Headers/Header';
 
-import { Button, Card, SearchBar } from 'react-native-elements';
+import { Button, Card, SearchBar, Grid, Row, Icon } from 'react-native-elements';
+
+import Hr from 'react-native-hr';
 
 import Toast from 'react-native-simple-toast';
 
@@ -14,11 +16,11 @@ class Search extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { query: 'Austin' };
+        this.state = { query: 'Austin, TX' };
     }
 
     search() {
-        Actions.home({ test: this.state.query });
+        Actions.home({ location: this.state.query });
     }
 
     updateText(input) {
@@ -52,8 +54,7 @@ class Search extends Component {
                         backgroundColor='#00704a'
                         buttonStyle={styles.logInButton}
                         iconRight
-                        title='Log In'
-                        onPress={() => Actions.home({test : this.state.query})} />
+                        title='Log In'/>
                     <Button
                         backgroundColor='#00704a'
                         buttonStyle={styles.logInButton}

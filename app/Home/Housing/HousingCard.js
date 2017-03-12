@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-import { Card, Icon, Grid, Row, Column, Button } from 'react-native-elements';
+import { Card, Icon, Grid, Row, Column } from 'react-native-elements';
 
 import Hr from 'react-native-hr'
 import Toast from 'react-native-simple-toast';
-import StarRating from 'react-native-star-rating';
 
-class JobCard extends Component {
+class HousingCard extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -23,14 +22,14 @@ class JobCard extends Component {
                 favorite: 'favorite-border',
                 didFavorite: false
             });
-            this.showToast('Removed Job');
+            this.showToast('Removed Home');
         } else {
             // favorite
             this.setState({
                 favorite: 'favorite',
                 didFavorite: true
             });
-            this.showToast('Saved Job');
+            this.showToast('Saved Home');
         }
     }
 
@@ -43,24 +42,19 @@ class JobCard extends Component {
             <Card
                 key={0} >
                 <View style={styles.view}>
-                    <Text style={styles.title}>{this.props.title}</Text>
+                    <Text style={styles.title}>$50,000</Text>
                 </View>
                 <Hr lineColor='#b3b3b3' textColor='steelblue' />
                 <View style={styles.view}>
                     <Grid>
                         <Row>
-                            <Text style={styles.company}>{this.props.company}</Text>
+                            <Text style={styles.company}>Single Family Home</Text>
                         </Row>
                         <Row>
-                            <Text style={styles.location}>{this.props.location}</Text>
+                            <Text style={styles.location}>4 Beds 4 Full, 1 Half Baths</Text>
                         </Row>
                         <Row>
-                            <StarRating
-                                disabled={true}
-                                maxStars={5}
-                                rating={this.props.rating}
-                                starSize={20}
-                            />
+                            <Text style={styles.location}>12 Salisbury Ln.  Township of Washington, NJ 07853</Text>
                         </Row>
                     </Grid>
                 </View>
@@ -70,10 +64,10 @@ class JobCard extends Component {
                     onPress={() => this.favorite()}
                 />
                 <Button
-                    icon={{name: 'work'}}
+                    icon={{name: 'home'}}
                     backgroundColor='#8dc63f'
                     buttonStyle={{marginTop: 5, borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
-                    title='View Job' />
+                    title='View Home' />
             </Card>
         </View>);
     }
@@ -97,4 +91,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default JobCard;
+export default HousingCard;
