@@ -72,16 +72,16 @@ class Favorites extends Component {
                     <Card
                         key={0} >
                         <View style={styles.view}>
-                            <Text style={styles.title}>job title</Text>
+                            <Text style={styles.title}>Software Engineer</Text>
                         </View>
                         <Hr lineColor='#b3b3b3' textColor='steelblue' />
                         <View style={styles.view}>
                             <Grid>
                                 <Row>
-                                    <Text style={styles.company}>company</Text>
+                                    <Text style={styles.company}>GlassDoor</Text>
                                 </Row>
                                 <Row>
-                                    <Text style={styles.location}>location</Text>
+                                    <Text style={styles.location}>San Francisco, CA</Text>
                                 </Row>
                                 <Row>
                                     <StarRating
@@ -107,19 +107,19 @@ class Favorites extends Component {
                     <Card
                         key={0}>
                         <View style={styles.view}>
-                            <Text style={styles.title}>price</Text>
+                            <Text style={styles.title}>$350,000</Text>
                         </View>
                         <Hr lineColor='#b3b3b3' textColor='steelblue' />
                         <View style={styles.view}>
                             <Grid>
                                 <Row>
-                                    <Text style={styles.company}>housetype</Text>
+                                    <Text style={styles.company}>Apartment</Text>
                                 </Row>
                                 <Row>
-                                    <Text style={styles.location}>attributes</Text>
+                                    <Text style={styles.location}>1 Bedroom 1 Bath</Text>
                                 </Row>
                                 <Row>
-                                    <Text style={styles.location}>address</Text>
+                                    <Text style={styles.location}>101 S Spruce St</Text>
                                 </Row>
                             </Grid>
                         </View>
@@ -137,7 +137,7 @@ class Favorites extends Component {
                     <Card
                         key={0}>
                         <View style={styles.view}>
-                            <Text style={styles.title}>name</Text>
+                            <Text style={styles.title}>The Cow Palace</Text>
                         </View>
                         <Hr lineColor='#b3b3b3' textColor='steelblue' />
                         <View style={styles.stars}>
