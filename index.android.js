@@ -18,6 +18,7 @@ import HouseSearchData from './lib/HouseSearchData';
 import todoSearchResults from './lib/todoSearchResults'
 import HousePageData from './lib/HousePageData.js'
 import CityPageData from './lib/CityPageData.js'
+import user from './lib/User.js'
 
 let test = 'loading..';
 
