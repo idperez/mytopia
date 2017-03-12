@@ -71,7 +71,7 @@ class LifeCard extends Component {
                     backgroundColor='#8dc63f'
                     buttonStyle={{marginTop: 5, borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0}}
                     title='View Business'
-                    onPress={this.viewBusiness.bind(this)}/>
+                />
             </Card>
         </View>);
     }

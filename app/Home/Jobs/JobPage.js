@@ -78,7 +78,7 @@ class JobPage extends Component {
         this.state = {housing: <Text>loading...</Text>};
         this.state = {life: <Text>loading...</Text>};
 
-        JobPageData.getCompanyInformation('Glassdoor').then((res) => {
+        JobPageData.getCompanyInformation(this.props.company).then((res) => {
 
             results = res;
 
@@ -111,7 +111,7 @@ class JobPage extends Component {
             this.setState({housing: housing});
         });
 
-        todoListData.getTodoList('austin', 'texas').then((res) => {
+        todoListData.getTodoList('austin', 'tx').then((res) => {
 
             life = res.map((life, i) => {
                 return <LifePageCard

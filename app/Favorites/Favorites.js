@@ -32,6 +32,9 @@ const CITIES = [
     },
     {
         name: 'Seattle'
+    },
+    {
+        name: 'Phoenix'
     }
 ];
 

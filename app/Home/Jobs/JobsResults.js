@@ -36,7 +36,10 @@ class JobsResults extends Component {
                     title={job.title}
                     company={job.company}
                     rating={parseInt(job.rating)}
-                    location={job.location} />;
+                    location={job.location}
+                    city={this.city}
+                    state={this.state}
+                />;
             });
             this.setState({results: results});
         });

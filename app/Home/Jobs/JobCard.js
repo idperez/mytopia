@@ -41,7 +41,7 @@ class JobCard extends Component {
     }
 
     viewJob() {
-        Actions.job({jobTitle : this.props.title});
+        Actions.job({jobTitle : this.props.title, city : this.props.city, state : this.props.state, company : this.props.company});
     }
 
     render () {

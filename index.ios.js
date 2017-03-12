@@ -8,11 +8,13 @@ import JobPage from './app/Home/Jobs/JobPage';
 import HomePage from './app/Home/Housing/HomePage';
 import LifePage from './app/Home/Life/LifePage';
 
+import Stats from './app/Stats/Stats';
+
 import Preferences from './app/Home/Preferences';
 
 import Favorites from './app/Favorites/Favorites';
 
-import { Router, Scene } from 'react-native-router-flux'
+import { Router, Scene } from 'react-native-router-flux';
 
 export default class mytopia extends Component {
 
@@ -73,16 +75,16 @@ export default class mytopia extends Component {
                         </Scene>
                         <Scene key="stats" title="STATS" icon={TabIcon}>
                             <Scene
-                                key="favorites"
-                                component={Favorites}
+                                key="graphs"
+                                component={Stats}
                                 title={<Text style={styles.headerText}>mytopia</Text>}
                                 initial
                             />
                         </Scene>
                         <Scene key="more" title="MORE" icon={TabIcon}>
                             <Scene
-                                key="favorites"
-                                component={Favorites}
+                                key="search"
+                                component={Search}
                                 title={<Text style={styles.headerText}>mytopia</Text>}
                                 initial
                             />
