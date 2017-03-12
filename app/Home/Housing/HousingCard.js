@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-import { Card, Icon, Grid, Row, Column } from 'react-native-elements';
+import { Card, Icon, Grid, Row, Column, Button } from 'react-native-elements';
 
 import Hr from 'react-native-hr'
 import Toast from 'react-native-simple-toast';
@@ -40,7 +40,8 @@ class HousingCard extends Component {
     render () {
         return (<View>
             <Card
-                key={0} >
+                key={0}
+                image={{uri: this.props.image}}>
                 <View style={styles.view}>
                     <Text style={styles.title}>$50,000</Text>
                 </View>
@@ -90,5 +91,8 @@ const styles = StyleSheet.create({
         marginBottom: 5
     }
 });
+
+/*
+ */
 
 export default HousingCard;

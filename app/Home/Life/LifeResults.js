@@ -31,7 +31,6 @@ class LifeResults extends Component {
                     rating={life.rating}
                      />;
             });
-            this.setState({results: results});
 
             this.setState({results: results});
         });
