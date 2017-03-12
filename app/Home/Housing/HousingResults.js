@@ -36,18 +36,7 @@ class HousingResults extends Component {
         let city = this.props.location.split(',')[0];
         let state = this.props.location.split(',')[1];
 
-        HouseSearchData.getHousingSearchData('austin', 'tx').then((res) => {
 
-            results = res.houseList.map((house, i) => {
-                return <HousingCard
-                    key={i}
-                    price={house.price}
-                    houseType={house.houseType}
-                    attributes={house.attributes}
-                    address={house.address} />;
-            });
-            this.setState({results: results});
-        });
     }
 
     render () {
